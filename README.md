@@ -99,6 +99,33 @@ Test Cases Table
 
 ---
 
+## 🐳 Docker Integration
+
+### 📁 Dockerfile
+
+   ```bash
+   FROM openjdk:17-jdk-slim
+   COPY target/url-shortener-0.0.1-SNAPSHOT.jar url-shortener.jar
+   ENTRYPOINT ["java", "-jar", "url-shortener.jar"]
+   ```
+### Steps to Build and Run Docker Image
+1. Build the Docker image:
+   ```bash
+   docker build -t url-shortener-app .
+2. Run the Docker container:
+   ```bash
+   docker run -p 8080:8080 url-shortener-app
+3. Push to Docker Hub:
+   ```bash
+   docker tag url-shortener-app pranavmanapure/url-shortener:latest
+   docker push pranavmanapure/url-shortener:latest
+4. Share the image with reviewers:
+   ```bash
+   docker pull pranavmanapure/url-shortener:latest
+   docker run -p 8080:8080 pranavmanapure/url-shortener:latest
+
+---
+
 ## 👥 Contributors
 
 Pranav Sanjay Manapure
