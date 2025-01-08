@@ -16,10 +16,18 @@ A simple and efficient **URL Shortener** application built using **Spring Boot**
 
 ---
 
+## Project Overview
+
+The URL Shortener Application provides a seamless way to shorten long URLs and redirect to the original links using the shortened URL. It includes domain-level metrics to track the number of times URLs from specific domains have been shortened, with support for returning the top 3 domains.
+
+---
+
 ## ✨ Features
 - ✂️ Shorten long URLs into concise short URLs.
 - 🔄 Retrieve the original URL using the shortened link.
 - 📊 Metrics API to track the **top 3 domains** with the most shortened URLs.
+- 🔗 RESTful API: Accessible via standardized API endpoints.
+- 🐳 Dockerized Deployment: Easily deployable using Docker.
 - ✅ Built-in **unit tests** for application functionality.
 
 ---
@@ -51,6 +59,16 @@ A simple and efficient **URL Shortener** application built using **Spring Boot**
 
 ---
 
+## Steps to Run the Project
+
+### Prerequisites
+
+- Java 17 or higher.
+- Maven (for dependencies).
+- Docker (optional, for containerized deployment).
+
+---
+
 ## ⚙️ Setup and Installation
 
 1. Clone the repository:
@@ -69,6 +87,27 @@ A simple and efficient **URL Shortener** application built using **Spring Boot**
 5. Access the application at http://localhost:8080.
 
 
+---
+
+## Example Requests
+
+### Shorten URL
+
+   ```bash
+      POST /shorten
+      Content-Type: application/json
+      {
+        "originalUrl": "https://example.com"
+      }
+   ```
+### Redirect to Original URL
+   ```bash
+      GET localhost:8080/abc123
+   ```
+### Get Metrics
+   ```bash
+      GET localhost:8080/metrics/domains
+   ```
 ---
 
 ## 📸 Screenshots
