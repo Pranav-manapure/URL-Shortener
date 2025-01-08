@@ -1,8 +1,12 @@
 package com.url.shortener.url.shortener;
 
+import com.url.shortener.url.shortener.repository.URLRepository;
 import com.url.shortener.url.shortener.util.URLShortenerUtil;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -51,4 +55,20 @@ class UrlShortenerApplicationTests {
 	}
 
 
+	private URLRepository urlRepository;
+
+	@BeforeEach
+	void setUp() {
+		urlRepository = new URLRepository();
+	}
+	@Test
+	void testDomainMetrics() {
+		urlRepository.save("https://www.linkedin.com/in/pranav-manapure/", "localhost:8080/d3cubGlu");
+		urlRepository.save("https://www.linkedin.com/company/elonnmusk/", "localhost:8080/OGQzNw==");
+		urlRepository.save("https://en.wikipedia.org/wiki/Car", "localhost:8080/bi53aWtp");
+
+		Map<String, Integer> domainMetrics = urlRepository.getDomainMetrics();
+		assertThat(domainMetrics).containsEntry("www.linkedin.com", 2);
+		assertThat(domainMetrics).containsEntry("en.wikipedia.org", 1);
+	}
 }
