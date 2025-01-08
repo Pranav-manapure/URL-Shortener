@@ -6,7 +6,9 @@ import com.url.shortener.url.shortener.util.URLShortenerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class URLShortenerService {
@@ -34,6 +36,11 @@ public class URLShortenerService {
     }
 
     public Map<String, Integer> getAllDomains() {
-
+        return urlRepository.getDomainMetrics()
+                .entrySet()
+                .stream()
+                .sorted((a, b) -> b.getValue() - a.getValue()) // Optional: Keep them sorted by count
+                .limit(3)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 }

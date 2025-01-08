@@ -42,4 +42,7 @@ public class URLRepository {
         return urlMap.get(shortUrl);
     }
 
+    public Map<String, Integer> getDomainMetrics() {
+        return domainMetrics;
+    }
 }
