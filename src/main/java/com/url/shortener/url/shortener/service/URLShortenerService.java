@@ -6,6 +6,8 @@ import com.url.shortener.url.shortener.util.URLShortenerUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class URLShortenerService {
 
@@ -29,5 +31,9 @@ public class URLShortenerService {
     public String getOriginalUrl(String shortUrl) {
         URLMapping mapping = urlRepository.findByShortUrl(shortUrl);
         return mapping != null ? mapping.getOriginalUrl() : null;
+    }
+
+    public Map<String, Integer> getAllDomains() {
+
     }
 }

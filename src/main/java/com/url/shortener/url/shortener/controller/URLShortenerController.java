@@ -28,4 +28,9 @@ public class URLShortenerController {
         return originalUrl != null ? ResponseEntity.status(302).location(URI.create(originalUrl)).build()
                 : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/metrics/domains")
+    public ResponseEntity<Map<String, Integer>> getAllDomains() {
+        return ResponseEntity.ok(urlShortenerService.getAllDomains());
+    }
 }
