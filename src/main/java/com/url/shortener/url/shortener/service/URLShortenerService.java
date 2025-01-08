@@ -24,4 +24,9 @@ public class URLShortenerService {
         urlRepository.save(originalUrl, shortUrl);
         return BASE_URL + shortUrl;
     }
+
+
+    public String getOriginalUrl(String shortUrl) {
+
+    }
 }
