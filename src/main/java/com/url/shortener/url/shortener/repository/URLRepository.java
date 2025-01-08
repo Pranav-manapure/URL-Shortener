@@ -38,4 +38,8 @@ public class URLRepository {
                 .orElse(null);
     }
 
+    public URLMapping findByShortUrl(String shortUrl) {
+        return urlMap.get(shortUrl);
+    }
+
 }

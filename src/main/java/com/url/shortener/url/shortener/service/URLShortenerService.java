@@ -27,6 +27,7 @@ public class URLShortenerService {
 
 
     public String getOriginalUrl(String shortUrl) {
-
+        URLMapping mapping = urlRepository.findByShortUrl(shortUrl);
+        return mapping != null ? mapping.getOriginalUrl() : null;
     }
 }
