@@ -150,18 +150,18 @@ Test Cases Table
 ### Steps to Build and Run Docker Image
 1. Build the Docker image:
    ```bash
-   docker build -t url-shortener-app .
+   docker build -t url-shortener .
 2. Run the Docker container:
    ```bash
-   docker run -p 8080:8080 url-shortener-app
+   docker run -p 8080:8080 url-shortener
 3. Push to Docker Hub:
    ```bash
-   docker tag url-shortener-app pranavmanapure/url-shortener:latest
-   docker push pranavmanapure/url-shortener:latest
+   docker tag url-shortener-app pranav3199/url-shortener:latest
+   docker push pranav3199/url-shortener:latest
 4. Share the image with reviewers:
    ```bash
-   docker pull pranavmanapure/url-shortener:latest
-   docker run -p 8080:8080 pranavmanapure/url-shortener:latest
+   docker pull pranav3199/url-shortener:latest
+   docker run -p 8080:8080 pranav3199/url-shortener:latest
 
 ---
 
